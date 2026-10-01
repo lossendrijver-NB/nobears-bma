@@ -69,7 +69,7 @@ export function scoreItem(query: string, item: Searchable): number {
   const termWords = terms.flatMap((t) => t.split(" "));
   const hitTitle = qWords.filter((w) => wordFuzzy(w, titleWords)).length / qWords.length;
   const hitTerms = qWords.filter((w) => wordFuzzy(w, termWords)).length / qWords.length;
-  const fuzzy = Math.max(hitTitle * 55, hitTerms * 45);
+  const fuzzy = Math.max(hitTitle * 70, hitTerms * 55);
   if (fuzzy >= 25) return Math.round(fuzzy);
 
   const descWords = normalize(item.shortDescription).split(" ");
