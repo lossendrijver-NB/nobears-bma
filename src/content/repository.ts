@@ -5,6 +5,7 @@ import type { Ambition, Case, ContactPerson, Service } from "./types";
 
 const services: Service[] = rawServices.map((s) => ({
   ...s,
+  caseIds: cases.filter((c) => c.serviceIds.includes(s.id)).map((c) => c.id),
   ambitionIds: ambitions.filter((a) => a.serviceIds.includes(s.id)).map((a) => a.id),
 }));
 

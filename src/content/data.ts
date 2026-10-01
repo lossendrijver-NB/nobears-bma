@@ -42,7 +42,7 @@ export const contacts: ContactPerson[] = [
 
 const p = (...t: string[]) => t;
 
-export const services: Omit<Service, "ambitionIds">[] = [
+export const services: Omit<Service, "ambitionIds" | "caseIds">[] = [
   {
     id: "s-merkstrategie", title: "Merkstrategie & positionering", slug: "merkstrategie-positionering",
     shortDescription: "Waar staat het merk voor en waarom kiest de klant ervoor?",
@@ -51,7 +51,7 @@ export const services: Omit<Service, "ambitionIds">[] = [
       "Het resultaat is een scherpe positionering, een merkbelofte en een merkverhaal dat richting geeft aan alle volgende stappen: van huisstijl tot campagne.",
     ),
     image: s100.url, searchTerms: ["branding", "positionering", "brand strategy", "merkwaarden", "merkbelofte", "merkidentiteit", "rebranding"],
-    caseIds: ["k-wolky", "k-bonn", "k-naturvita"], contactPersonId: "c-rogier",
+contactPersonId: "c-rogier",
   },
   {
     id: "s-huisstijl", title: "Huisstijl", slug: "huisstijl",
@@ -61,7 +61,7 @@ export const services: Omit<Service, "ambitionIds">[] = [
       "We leveren de huisstijl op met heldere richtlijnen, zodat iedereen er direct mee aan de slag kan.",
     ),
     image: s123.url, searchTerms: ["logo", "visuele identiteit", "brand identity", "corporate identity", "styleguide", "brandbook", "kleurenpalet"],
-    caseIds: ["k-naturvita", "k-wolky"],
+
   },
   {
     id: "s-touchpoint", title: "Touchpoint - optimalisatie", slug: "touchpoint-optimalisatie",
@@ -71,7 +71,7 @@ export const services: Omit<Service, "ambitionIds">[] = [
       "Op basis van data en gebruikersonderzoek verbeteren we die momenten stap voor stap, met meetbaar resultaat.",
     ),
     image: s146.url, searchTerms: ["customer journey", "conversie", "cro", "ux", "klantreis", "optimalisatie", "touchpoints"],
-    caseIds: ["k-voltera"], contactPersonId: "c-demo-strategie",
+contactPersonId: "c-demo-strategie",
   },
   {
     id: "s-campagne", title: "Campagne - strategie", slug: "campagne-strategie",
@@ -81,7 +81,7 @@ export const services: Omit<Service, "ambitionIds">[] = [
       "Een sterke campagne vergroot bekendheid, versterkt het merk en zet mensen in beweging.",
     ),
     image: s100.url, searchTerms: ["campagne", "concept", "advertising", "reclame", "mediaplan", "creatief concept", "awareness"],
-    caseIds: ["k-bonn", "k-werkgeluk"],
+
   },
   {
     id: "s-contentstrategie", title: "Contentstrategie", slug: "contentstrategie",
@@ -91,7 +91,7 @@ export const services: Omit<Service, "ambitionIds">[] = [
       "Zo wordt content geen losse verzameling posts, maar een samenhangend verhaal dat bijdraagt aan merk en business.",
     ),
     image: s123.url, searchTerms: ["content plan", "redactieplan", "storytelling", "content marketing", "thema's"],
-    caseIds: ["k-werkgeluk"], contactPersonId: "c-demo-content",
+contactPersonId: "c-demo-content",
   },
   {
     id: "s-content-socials", title: "Content (voor socials)", slug: "content-socials",
@@ -100,7 +100,7 @@ export const services: Omit<Service, "ambitionIds">[] = [
       "Posts, reels, stories en ads voor Instagram, LinkedIn en TikTok. We maken content die past bij het platform én het merk.",
     ),
     image: s146.url, searchTerms: ["social media", "instagram", "linkedin", "tiktok", "reels", "posts", "socials"],
-    caseIds: ["k-werkgeluk", "k-bonn"],
+
   },
   {
     id: "s-content-website", title: "Content (voor website)", slug: "content-website",
@@ -109,7 +109,7 @@ export const services: Omit<Service, "ambitionIds">[] = [
       "We schrijven en maken content voor websites en landingspagina's: helder, vindbaar en in de tone of voice van het merk.",
     ),
     image: s100.url, searchTerms: ["copywriting", "webteksten", "seo", "landingspagina", "tone of voice"],
-    caseIds: ["k-voltera"],
+
   },
   {
     id: "s-video", title: "Video & film", slug: "video-film",
@@ -118,7 +118,7 @@ export const services: Omit<Service, "ambitionIds">[] = [
       "Van brandfilm tot korte social video's en recruitmentfilms. We verzorgen concept, productie en montage.",
     ),
     image: s123.url, searchTerms: ["video", "film", "brandfilm", "videoproductie", "montage", "motion"],
-    caseIds: ["k-werkgeluk", "k-bonn"],
+
   },
   {
     id: "s-animatie", title: "Animatie & 3D", slug: "animatie-3d",
@@ -127,7 +127,7 @@ export const services: Omit<Service, "ambitionIds">[] = [
       "Met motion design, explainers en 3D-visualisaties maken we producten en processen zichtbaar die je met een camera niet vastlegt.",
     ),
     image: s146.url, searchTerms: ["animatie", "3d", "motion design", "explainer", "visualisatie", "render"],
-    caseIds: ["k-voltera"],
+
   },
   {
     id: "s-fotografie", title: "Fotografie", slug: "fotografie",
@@ -136,7 +136,7 @@ export const services: Omit<Service, "ambitionIds">[] = [
       "Product-, campagne- en portretfotografie. We regisseren shoots die aansluiten bij de beeldtaal van het merk.",
     ),
     image: s100.url, searchTerms: ["foto", "fotoshoot", "productfotografie", "beeld", "portret"],
-    caseIds: ["k-wolky"],
+
   },
   {
     id: "s-drukwerk", title: "Drukwerk & offline middelen", slug: "drukwerk-offline",
@@ -145,7 +145,7 @@ export const services: Omit<Service, "ambitionIds">[] = [
       "Brochures, verpakkingen, beursmaterialen en signing. We ontwerpen en begeleiden de productie tot het eindresultaat.",
     ),
     image: s123.url, searchTerms: ["print", "brochure", "verpakking", "packaging", "beurs", "signing", "flyer"],
-    caseIds: ["k-naturvita"],
+
   },
 ];
 
