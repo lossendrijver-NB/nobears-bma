@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AmbitieSlugRouteImport } from './routes/ambitie.$slug'
+import { Route as DienstSlugRouteImport } from './routes/dienst.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AmbitieSlugRoute = AmbitieSlugRouteImport.update({
+  id: '/ambitie/$slug',
+  path: '/ambitie/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DienstSlugRoute = DienstSlugRouteImport.update({
+  id: '/dienst/$slug',
+  path: '/dienst/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ambitie/$slug': typeof AmbitieSlugRoute
+  '/dienst/$slug': typeof DienstSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ambitie/$slug': typeof AmbitieSlugRoute
+  '/dienst/$slug': typeof DienstSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ambitie/$slug': typeof AmbitieSlugRoute
+  '/dienst/$slug': typeof DienstSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/ambitie/$slug' | '/dienst/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/ambitie/$slug' | '/dienst/$slug'
+  id: '__root__' | '/' | '/ambitie/$slug' | '/dienst/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AmbitieSlugRoute: typeof AmbitieSlugRoute
+  DienstSlugRoute: typeof DienstSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ambitie/$slug': {
+      id: '/ambitie/$slug'
+      path: '/ambitie/$slug'
+      fullPath: '/ambitie/$slug'
+      preLoaderRoute: typeof AmbitieSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dienst/$slug': {
+      id: '/dienst/$slug'
+      path: '/dienst/$slug'
+      fullPath: '/dienst/$slug'
+      preLoaderRoute: typeof DienstSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AmbitieSlugRoute: AmbitieSlugRoute,
+  DienstSlugRoute: DienstSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
