@@ -39,7 +39,11 @@ function levenshtein(a: string, b: string) {
 /** Does query word q fuzzily match any word in the text? */
 function wordFuzzy(q: string, words: string[]) {
   const tol = q.length >= 7 ? 2 : q.length >= 4 ? 1 : 0;
-  return words.some((w) => w.startsWith(q) || (tol > 0 && levenshtein(q, w.slice(0, Math.max(q.length, w.length > q.length + 2 ? q.length : w.length))) <= tol));
+  return words.some(
+    (w) =>
+      w.startsWith(q) ||
+      (tol > 0 && (levenshtein(q, w) <= tol || (w.length > q.length && levenshtein(q, w.slice(0, q.length)) <= tol))),
+  );
 }
 
 const STOP = new Set(["een", "de", "het", "mijn", "en", "of", "van", "voor", "op", "in", "te", "naar", "ik", "wil", "we"]);
